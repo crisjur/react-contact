@@ -1,6 +1,6 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 
-const CustomTable = ({ tableName, headerRows, data }) => (
+const CustomTable = ({ tableName, headerRows, data, onClickRow }) => (
     <table className="table">
       <thead>
         <tr>
@@ -9,10 +9,10 @@ const CustomTable = ({ tableName, headerRows, data }) => (
       </thead>
       <tbody>
       {data.map((item, index) => (
-        <tr key={`${tableName}-row-${index}`} style={{ cursor: 'pointer'}}>
+        <tr key={`${tableName}-row-${index}`} style={{ cursor: 'pointer'}} onClick={() => onClickRow(item)}>
           <th scope="row">{item.id}</th>
           <td>{item.first_name + " " + item.last_name}</td>
-          <td>{item.email}</td>
+          <td>{item.phone_number}</td>
         </tr>
       ))}
       </tbody>
